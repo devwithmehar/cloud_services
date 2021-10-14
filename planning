@@ -10,6 +10,6 @@ Cloud_id : references
 Category_id : references
 
 
-Category                (has many services)
-Name: String           ------> Category 
+Type               (has many services)
+Name: String           ------> Category
 Description: text
