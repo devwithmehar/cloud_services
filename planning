@@ -1,0 +1,15 @@
+Cloud    (has_many services)
+Name : String      ------>     Unique, Required
+
+
+Service          (has one cloud) && (has one category)
+Name: String          ------->  Required
+Description: text
+price : decimal
+Cloud_id : references
+Category_id : references
+
+
+Category                (has many services)
+Name: String           ------> Category 
+Description: text
