@@ -1,4 +1,4 @@
 class Company < ApplicationRecord
-  has_many :service_users, through: :services
+  has_many :services, through: :service_users
   validates :name, presence: true
 end
