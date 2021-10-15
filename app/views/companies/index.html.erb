@@ -1,0 +1,9 @@
+<h1 class="display-6 mb-3 mt-5 mx-3" > All Companies </h1>
+
+<ol class="list-group list-group-flush" >
+<% @companies.each do |company| %>
+
+<li class="list-group-item" > <%= link_to company.name, company  %> </li>
+
+<% end %>
+</ol>

@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  # get 'companies/index'
+  # get 'companies/show'
   root to: 'home#index'
   # get 'types/index'
   # get 'types/show'
+  resources :companies, only: [:index, :show]
   resources :services, only: [:index, :show]
   resources :clouds, only: [:index, :show]
   resources :types, only: [:index, :show]
