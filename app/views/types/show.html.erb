@@ -1,1 +1,11 @@
+<% content_for(:html_title) {@type.name} %>
+
 <h2 class="display-6 mb-3 mt-5 mx-3" > <%= @type.name %> </h2>
+
+<samp>There are following services under <%= @type.name %> Category :</samp>
+
+<ol class="list-group list-group-flush">
+    <% @type.services.each do |services| %>
+    <li class="list-group-item"> <%= link_to services.name, services %> </li>
+    <% end %>
+</ol>

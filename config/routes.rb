@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'home#index'
   # get 'types/index'
   # get 'types/show'
   resources :services, only: [:index, :show]

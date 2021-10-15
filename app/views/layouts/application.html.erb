@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CloudServiceProject</title>
+    <title><%= yield(:html_title)  + "-" if content_for?(:html_title) %>  Cloud Project  </title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -22,19 +22,19 @@
       <a class="navbar-brand" href="#">Cloud Project</a>
       <ul class="navbar-nav me-auto mb-2  mb-lg-0">
         <li class="nav-item mx-5">
-          <a class="nav-link active" aria-current="page" href="#">About</a>
+          <a class="nav-link active" aria-current="page" href="/">About</a>
         </li>
 
          <li class="nav-item mx-5">
-          <a class="nav-link active" aria-current="page" href="#">Cloud Servers</a>
+          <a class="nav-link active" aria-current="page" href="/clouds">Cloud Servers</a>
         </li>
 
          <li class="nav-item mx-5">
-          <a class="nav-link active" aria-current="page" href="#"> Services </a>
+          <a class="nav-link active" aria-current="page" href="/services"> Services </a>
         </li>
 
          <li class="nav-item mx-5">
-          <a class="nav-link active" aria-current="page" href="#">Categories</a>
+          <a class="nav-link active" aria-current="page" href="/types">Categories</a>
         </li>
 
       </ul>
