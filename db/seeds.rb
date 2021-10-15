@@ -3,7 +3,7 @@ require "faker"
 
 ServiceUser.delete_all
 
-20.times do
+65.times do
   6.times do
   comServices = ServiceUser.create(
     company_id: Faker::Number.between(from: 1, to: 139),
