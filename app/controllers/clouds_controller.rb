@@ -1,8 +1,9 @@
 class CloudsController < ApplicationController
   def index
-    @cloud = Cloud.all
+    @clouds = Cloud.all
   end
 
   def show
+    @cloud = Cloud.find(params[:id])
   end
 end
