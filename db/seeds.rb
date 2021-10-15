@@ -1,38 +1,17 @@
-require "faker"
-
-Service.delete_all
-Cloud.delete_all
-Type.delete_all
+require "csv"
 
 
-20.times do
-  cloud = Cloud.create(
-    name: Faker::Name.unique.name
-  )
+filename = Rails.root.join("db/top_movies.csv")
 
-  # firstCloud = Cloud.first.id
-  # nextCloudLimit = firstCloud + 190
+puts "Loading Movies from the CSV File: #{filename}"
 
-  type = Type.create(
-    name:  Faker::Name.unique.name
-  )
+csv_data = File.read(filename)
+company = CSV.parse(csv_data, headers: true , encoding: "utf-8")
 
-  # firstType = Type.first.id
-  # nextTypeLimit = firstType + 190
-  4.times do
-      services = Service.create(
-      name: Faker::Coffee.blend_name,
-      description:  Faker::Food.description,
-      price: Faker::Commerce.price,
-      cloud: cloud,
-      type: type
-    )
-end
+company.each do |c|
+
+  companies = Company.find_or_create_by(name: c["production_company"])
+
 end
 
-
-puts Cloud.first.id
-
-puts "Number of Cloud #{Cloud.count}"
-puts "Number of Type #{Type.count}"
-puts "Number of Service #{Service.count}"
+puts "Created #{Company.count}  Companies"
