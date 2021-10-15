@@ -10,12 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_14_170952) do
+ActiveRecord::Schema.define(version: 2021_10_15_025635) do
 
   create_table "clouds", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "service_users", force: :cascade do |t|
+    t.integer "company_id", null: false
+    t.integer "service_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_service_users_on_company_id"
+    t.index ["service_id"], name: "index_service_users_on_service_id"
   end
 
   create_table "services", force: :cascade do |t|
@@ -36,6 +51,8 @@ ActiveRecord::Schema.define(version: 2021_10_14_170952) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "service_users", "companies"
+  add_foreign_key "service_users", "services"
   add_foreign_key "services", "clouds"
   add_foreign_key "services", "types"
 end
