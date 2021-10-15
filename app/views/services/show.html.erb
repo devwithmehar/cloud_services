@@ -1,2 +1,21 @@
-<h1>Services#show</h1>
-<p>Find me in app/views/services/show.html.erb</p>
+<h2 class="display-5 mb-5 mt-2 " > <%= @services.name %> </h2>
+
+<dl class="row ">
+  <dt class="col-sm-3">Service Name</dt>
+  <dd class="col-sm-9"> <%= @services.name %> </dd>
+
+  <dt class="col-sm-3">Cloud</dt>
+  <dd class="col-sm-9">
+    <%= @services.cloud.name %>
+  </dd>
+
+  <dt class="col-sm-3">Category</dt>
+  <dd class="col-sm-9"><%= @services.type.name %></dd>
+
+  <dt class="col-sm-3 ">Description</dt>
+  <dd class="col-sm-9"><%= @services.description %></dd>
+
+  <dt class="col-sm-3 ">Price</dt>
+  <dd class="col-sm-9"><%= number_to_currency @services.price %></dd>
+
+</dl>

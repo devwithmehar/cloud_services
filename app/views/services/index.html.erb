@@ -1,2 +1,9 @@
-<h1>Services#index</h1>
-<p>Find me in app/views/services/index.html.erb</p>
+<h1 class="display-6 mb-3 mt-5 mx-3" > All Services </h1>
+
+<ol>
+    <% @services.each do |service| %>
+    <li> <%= link_to service.name, service %> is provided by <%= link_to service.cloud.name, service.cloud  %> Cloud <br>
+     and the this is of <%= link_to service.type.name, service.type %>  type <br> <br>
+     </li>
+    <% end %>
+</ol>
