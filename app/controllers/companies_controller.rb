@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
   def index
-    @companies = Company.all
+    @companies = Company.all.order("name")
   end
 
   def show
@@ -8,10 +8,14 @@ class CompaniesController < ApplicationController
 
     @serviceUser = ServiceUser.where(company_id: @company)
 
-    @serviceUser.each do |user|
-      @services = Service.where(id: user.service_id)
-    end
+    @service_ids = @serviceUser.map{
+      |p| p.service_id
+    }
 
-  end
+    @services = Service.where(id: @service_ids)
+    
+
+
 end
 
+end
