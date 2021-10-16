@@ -3,4 +3,10 @@
 <h2 class="display-6 mb-3 mt-5 mx-3" > <%= @company.name %> </h2>
 
 
+<h3 class="display-6 mb-3 mt-5 mx-3" > Name of Services Used by <%= @company.name %> Company </h3>
 
+<ol class="list-group list-group-flush" >
+<% @services.each do|service|%>
+<li class="list-group-item" > <%= link_to service.name, service %> </li>
+<% end %>
+</ol>
