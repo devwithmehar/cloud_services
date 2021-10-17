@@ -1,0 +1,11 @@
+<h1 class="display-6 mb-3 mt-5 mx-3" >
+      <%= pluralize(@clouds.count, 'Clouds') %> are found when searching for : <%= params[:keywords] %>
+ </h1>
+
+<ol class="list-group list-group-flush" >
+<% @clouds.each do |cloud| %>
+
+<li class="list-group-item" > <%= link_to cloud.name, cloud  %> </li>
+
+<% end %>
+</ol>
