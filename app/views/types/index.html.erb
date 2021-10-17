@@ -1,6 +1,14 @@
-<h1 class="display-6 mb-3 mt-5 mx-3" > Service Categories </h1>
+<h1 class="display-6 mb-4 mt-5 mx-3" > Service Categories </h1>
 
-<ol class="list-group list-group-flush">
+ <%=  form_with(url: search_types_path, method: "get", local:true) do |form|  %>
+        <div class="d-flex">
+        <%=  text_field_tag(:keywords, nil, class: "form-control me-2", placeholder: "Search for Categories") %>
+        <%= submit_tag("Search", class: "btn btn-outline-success") %>
+
+        </div>
+      <% end %>
+
+<ol class="list-group list-group-flush mt-5">
     <% @types.each do |type| %>
     <li class="list-group-item"> <%= link_to type.name, type %> </li>
     <% end %>

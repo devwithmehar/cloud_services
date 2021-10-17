@@ -13,9 +13,14 @@ class CompaniesController < ApplicationController
     }
 
     @services = Service.where(id: @service_ids)
-    
 
 
+
+end
+
+def search
+  wildcard_search = "%#{params[:keywords]}%"
+  @companies = Company.where("name LIKE ?", wildcard_search)
 end
 
 end

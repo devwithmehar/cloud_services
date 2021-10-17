@@ -4,10 +4,11 @@ Rails.application.routes.draw do
   root to: 'home#index'
   # get 'types/index'
   # get 'types/show'
-  resources :companies, only: [:index, :show]
+  # resources :companies, only: [:index, :show]
   # resources :services, only: [:index, :show]
   # resources :clouds, only: [:index, :show]
-  resources :types, only: [:index, :show]
+  # resources :types, only: [:index, :show]
+  
   resources :services, only: %i[index show] do
     collection do
       get "search"
@@ -15,6 +16,18 @@ Rails.application.routes.draw do
   end
 
   resources :clouds, only: %i[index show] do
+    collection do
+      get "search"
+    end
+  end
+
+  resources :types, only: %i[index show] do
+    collection do
+      get "search"
+    end
+  end
+
+  resources :companies, only: %i[index show] do
     collection do
       get "search"
     end
