@@ -1,3 +1,4 @@
+
 <h1 class="display-6 mb-4 mt-5 mx-3" > All Companies </h1>
 
 <%=  form_with(url: search_companies_path, method: "get", local:true) do |form|  %>
@@ -15,3 +16,13 @@
 
 <% end %>
 </ol>
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+  <% for i in 0..@numberOfPages-1 do%>
+<li class="page-item"> <div class="page-link" href="#"> <%= link_to i, companies_path(page: i)  %> </div> </li>
+
+  <%end %>
+
+  </ul>
+</nav>

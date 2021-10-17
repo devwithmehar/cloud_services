@@ -1,6 +1,11 @@
 class CompaniesController < ApplicationController
+  PER_PAGE= 10
+
   def index
-    @companies = Company.all.order("name")
+    @page = params.fetch(:page,0).to_i
+    @companies = Company.offset(@page * PER_PAGE).limit(PER_PAGE).order("name")
+    @all_companies = Company.all
+    @numberOfPages = @all_companies.count/PER_PAGE
   end
 
   def show
