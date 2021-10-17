@@ -5,9 +5,15 @@ Rails.application.routes.draw do
   # get 'types/index'
   # get 'types/show'
   resources :companies, only: [:index, :show]
-  resources :services, only: [:index, :show]
+  # resources :services, only: [:index, :show]
   resources :clouds, only: [:index, :show]
   resources :types, only: [:index, :show]
+  resources :services, only: %i[index show] do
+    collection do
+      get "search"
+    end
+  end
+
   # get 'clouds/index'
   # get 'clouds/show'
   # get 'services/index'
